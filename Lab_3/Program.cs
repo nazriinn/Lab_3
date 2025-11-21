@@ -156,42 +156,51 @@ for (int i = 0; i < arr10.Length; i++)
 }
 Console.WriteLine(sumEven10);
 
-// Task 11
-int choice11 = 0;
-while (choice11 != 4)
-{
-    Console.WriteLine("1.Add");
-    Console.WriteLine("2.Subtract");
-    Console.WriteLine("3.Multiply");
-    Console.WriteLine("4.Exit");
-    Console.WriteLine("Secim edin:");
-    choice11 = Convert.ToInt32(Console.ReadLine());
 
-    if (choice11 == 1)
+// Task 11
+int choice = 0;
+
+while (choice != 4)
+{
+    Console.WriteLine("1. Add");
+    Console.WriteLine("2. Subtract");
+    Console.WriteLine("3. Multiply");
+    Console.WriteLine("4. Exit");
+
+    Console.Write("Choose: ");
+    choice = int.Parse(Console.ReadLine());
+
+    if (choice == 4)
     {
-        Console.WriteLine("1-ci eded:");
-        int a = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("2-ci eded:");
-        int b = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine(a + b);
+        Console.WriteLine("Exiting...");
+        break;
     }
-    else if (choice11 == 2)
+
+    Console.Write("Enter first number: ");
+    int n1 = int.Parse(Console.ReadLine());
+
+    Console.Write("Enter second number: ");
+    int n2 = int.Parse(Console.ReadLine());
+
+    if (choice == 1)
     {
-        Console.WriteLine("1-ci eded:");
-        int a = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("2-ci eded:");
-        int b = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine(a - b);
+        Console.WriteLine("Result: " + (n1 + n2));
     }
-    else if (choice11 == 3)
+    else if (choice == 2)
     {
-        Console.WriteLine("1-ci eded:");
-        int a = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("2-ci eded:");
-        int b = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine(a * b);
+        Console.WriteLine("Result: " + (n1 - n2));
+    }
+    else if (choice == 3)
+    {
+        Console.WriteLine("Result: " + (n1 * n2));
+    }
+    else
+    {
+        Console.WriteLine("Wrong choice");
     }
 }
+
+
 
 // Task 12
 int[] arr12 = { 1, -2, 0, 3, -5 };
@@ -382,7 +391,7 @@ while (temp24 > 0)
     sum24 += temp24 % 10;
     temp24 /= 10;
 }
-Console.WriteLine("Rəqəmlərin cəmi: " + sum24);
+Console.WriteLine("Reqemlerin cemi: " + sum24);
 
 // Task 25
 List<int> list25 = new List<int> { 1, 2, 3, 4, 5, 6 };
@@ -399,7 +408,7 @@ for (int i = 0; i < list25.Count; i++)
         odd25++;
     }
 }
-Console.WriteLine("Cüt: " + even25 + " Tək: " + odd25);
+Console.WriteLine("Even: " + even25 + " Odd: " + odd25);
 
 
 // Task 26
@@ -414,30 +423,42 @@ while (left26 < right26)
     left26++;
     right26--;
 }
-Console.WriteLine("Tərs array: " + string.Join(",", arr26));
+Console.WriteLine("Ters array: " + string.Join(",", arr26));
+
+
 
 // Task 27
-int[] grades27 = new int[5];
+int[] grades = new int[5];
+int sum = 0;
+
 for (int i = 0; i < 5; i++)
 {
-    Console.WriteLine("Qiymet daxil edin:");
- grades27[i] = Convert.ToInt32(Console.ReadLine());
+    grades[i] = Convert.ToInt32(Console.ReadLine());
+    sum += grades[i];
 }
-int max27 = grades27[0];
-int min27 = grades27[0];
-int sum27 = 0;
-int above9027 = 0;
-for (int i = 0; i < grades27.Length; i++)
+
+double average = (double)sum / 5;
+
+int highest = grades[0];
+int lowest = grades[0];
+int above90 = 0;
+
+for (int i = 0; i < 5; i++)
 {
-    sum27 += grades27[i];
-    if (grades27[i] > max27) max27 = grades27[i];
-    if (grades27[i] < min27) min27 = grades27[i];
-    if (grades27[i] > 90) above9027++;
+    if (grades[i] > highest)
+        highest = grades[i];
+
+    if (grades[i] < lowest)
+        lowest = grades[i];
+
+    if (grades[i] > 90)
+        above90++;
 }
-Console.WriteLine("Orta: " + (sum27 / 5));
-Console.WriteLine("En boyuk: " + max27);
-Console.WriteLine("En kicik: " + min27);
-Console.WriteLine("90-dan yuxari: " + above9027);
+
+Console.WriteLine("Average: " + average);
+Console.WriteLine("Highest: " + highest);
+Console.WriteLine("Lowest: " + lowest);
+Console.WriteLine("Above 90: " + above90);
 
 
 
